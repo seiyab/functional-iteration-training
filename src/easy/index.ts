@@ -1,3 +1,11 @@
+export function sum(input: number[]): number {
+  let output = 0;
+  for (const element of input) {
+    output += element;
+  }
+  return output;
+}
+
 export function lowerAll(input: string[]): string[] {
   const output = [];
   for (const element of input) {

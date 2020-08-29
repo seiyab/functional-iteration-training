@@ -1,8 +1,26 @@
 import {
+  sum,
   lowerAll,
   firstElementOver5,
   allElementsArePositive,
 } from '.';
+
+describe('sum', () => {
+  it('should return sum of elements', () => {
+    const originalInput = [0, 1, 2, 3, 4];
+    const input = [...originalInput];
+    const result = sum(input);
+    expect(result).toBe(10);
+    expect(input).toEqual(originalInput);
+  });
+
+  it('should return 0 for an empty array', () => {
+    const input: number[] = [];
+    const result = sum(input);
+    expect(result).toBe(0);
+    expect(input).toEqual([]);
+  });
+});
 
 describe('lowerAll', () => {
   it('should return lower cases', () => {
@@ -22,7 +40,7 @@ describe('lowerAll', () => {
     expect(input).toEqual(originalInput);
   });
 
-  it('should work for empty array', () => {
+  it('should work for an empty array', () => {
     const input: string[] = [];
     const result = lowerAll(input);
     expect(result).toEqual([]);
@@ -47,7 +65,7 @@ describe('firstElementOver5', () => {
     expect(input).toEqual(originalInput);
   });
 
-  it('should return undefined for empty array', () => {
+  it('should return undefined for an empty array', () => {
     const input: number[] = [];
     const result = firstElementOver5(input);
     expect(result).toBeUndefined();
@@ -72,7 +90,7 @@ describe('allElementsArePositive', () => {
     expect(input).toEqual(originalInput);
   });
 
-  it('should return true for empty array (remember de morgan\'s laws)', () => {
+  it('should return true for an empty array (remember de morgan\'s laws)', () => {
     const input: number[] = [];
     const result = allElementsArePositive(input);
     expect(result).toBe(true);
