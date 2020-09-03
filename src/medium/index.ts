@@ -16,7 +16,7 @@ export function getFirstOneByNestedArray<T>(
   for (const keys of keyss) {
     for (const key of keys) {
       if (store[key] !== undefined) {
-        return sotre[key];
+        return store[key];
       }
     }
   }
