@@ -3,6 +3,7 @@ import {
   lowerAll,
   firstElementOver5,
   allElementsArePositive,
+  concatWithIndex,
 } from '.';
 
 describe('sum', () => {
@@ -95,5 +96,20 @@ describe('allElementsArePositive', () => {
     const result = allElementsArePositive(input);
     expect(result).toBe(true);
     expect(input).toEqual([]);
+  });
+});
+
+describe('concatWithIndex', () => {
+  it('should work', () => {
+    const originalInput = ['a', 'b', 'c'];
+    const input = [...originalInput];
+    const expected = [
+      '0:a',
+      '1:b',
+      '2:c',
+    ];
+    const result = concatWithIndex(input);
+    expect(result).toEqual(expected);
+    expect(input).toEqual(originalInput);
   });
 });

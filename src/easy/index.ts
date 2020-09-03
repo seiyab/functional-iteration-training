@@ -31,3 +31,11 @@ export function allElementsArePositive(input: number[]): boolean {
   }
   return true;
 }
+
+export function concatWithIndex(input: string[]): string[] {
+  const output = [];
+  for (const i in input) {
+    output.push(`${i}:${input[i]}`);
+  }
+  return output;
+}
