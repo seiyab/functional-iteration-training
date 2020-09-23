@@ -9,6 +9,20 @@ export async function sequentiallyApplyAsyncFunctions<T>(
   return output;
 }
 
+export function takeWhile<T>(
+  predicate: (value: T) => boolean,
+  input: T[],
+): T[] {
+  const output = [];
+  for (const element of input) {
+    if (!predicate(element)) {
+      break;
+    }
+    output.push(element);
+  }
+  return output;
+}
+
 export function getFirstOneByNestedArray<T>(
   store: {[k in string]: T},
   keyss: string[][],

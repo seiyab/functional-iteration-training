@@ -1,5 +1,6 @@
 import {
   sequentiallyApplyAsyncFunctions,
+  takeWhile,
   getFirstOneByNestedArray,
 } from '.';
 
@@ -15,6 +16,23 @@ describe('sequentiallyApplyAsyncFunctions', () => {
   it('should work for empty array', async () => {
     const result = await sequentiallyApplyAsyncFunctions([], 'foo');
     expect(result).toBe('foo');
+  });
+});
+
+describe('takeWhile', () => {
+  it('should work', () => {
+    const result = takeWhile((x: number) => x < 3, [0, 1, 2, 3, 4, 5, 1, 2, 3]);
+    expect(result).toEqual([0, 1, 2]);
+  });
+
+  it('should work for empty array', () => {
+    const result = takeWhile(() => true, []);
+    expect(result).toEqual([]);
+  });
+
+  it('should work even if first element does not suit', () => {
+    const result = takeWhile((s: string) => s.startsWith('foo'), ['bar', 'foo baz']);
+    expect(result).toEqual([]);
   });
 });
 

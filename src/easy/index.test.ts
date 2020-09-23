@@ -4,6 +4,7 @@ import {
   firstElementOver5,
   allElementsArePositive,
   concatWithIndex,
+  takePositive,
 } from '.';
 
 describe('sum', () => {
@@ -110,6 +111,16 @@ describe('concatWithIndex', () => {
     ];
     const result = concatWithIndex(input);
     expect(result).toEqual(expected);
+    expect(input).toEqual(originalInput);
+  });
+});
+
+describe('takePositive', () => {
+  it('should work', () => {
+    const originalInput = [1, -2, 3, -4];
+    const input = [...originalInput];
+    const result = takePositive(input);
+    expect(result).toEqual([1, 3]);
     expect(input).toEqual(originalInput);
   });
 });

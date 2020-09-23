@@ -39,3 +39,13 @@ export function concatWithIndex(input: string[]): string[] {
   }
   return output;
 }
+
+export function takePositive(input: number[]): number[] {
+  const output = [];
+  for (const element of input) {
+    if (element > 0) {
+      output.push(element);
+    }
+  }
+  return output;
+}
